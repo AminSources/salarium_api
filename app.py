@@ -66,8 +66,7 @@ def register():
     # * get email and password from request args (query parameters)
     email = (request.args.get("email"),)
     password = (request.args.get("password"),)
-    fullname = (request.args.get("fullname"),)
-    nickname = (request.args.get("nickname"),)
+    name = (request.args.get("name"),)
     monthly_salary = (request.args.get("monthly_salary"),)
     salary_per_hour = (request.args.get("salary_per_hour"),)
 
@@ -85,8 +84,7 @@ def register():
         else:
             new_user = {
                 "email": email[0],
-                "fullname": fullname[0],
-                "nickname": nickname[0],
+                "name": name[0],
                 "password": password[0],
                 "salaries": [],
                 "monthly_salary": monthly_salary[0],
@@ -115,8 +113,7 @@ def update():
     # * get email and password from request args (query parameters)
     email = (request.args.get("email"),)
     password = (request.args.get("password"),)
-    fullname = (request.args.get("fullname"),)
-    nickname = (request.args.get("nickname"),)
+    name = (request.args.get("name"),)
     salaries = (request.args.get("salaries"),)
     monthly_salary = (request.args.get("monthly_salary"),)
     salary_per_hour = (request.args.get("salary_per_hour"),)
@@ -131,8 +128,7 @@ def update():
         if existing:
             updated_user = {
                 "email": email[0] if email[0] else existing.get("email"),
-                "fullname": fullname[0] if fullname[0] else existing.get("fullname"),
-                "nickname": nickname[0] if nickname[0] else existing.get("nickname"),
+                "name": name[0] if name[0] else existing.get("name"),
                 "password": password[0] if password[0] else existing.get("password"),
                 "salaries": salaries[0] if salaries[0] else existing.get("salaries"),
                 "monthly_salary": (
