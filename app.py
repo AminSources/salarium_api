@@ -48,7 +48,7 @@ def login():
             # * check if password matches
             if (u for u in apiData if u.get("password") == password[0]):
                 user = next((u for u in apiData if u.get("email") == email[0]), None)
-                return jsonify({"message": "Login successful", "user": user}), 200
+                return jsonify(user), 200
 
             else:
                 return jsonify({"message": "Incorrect password"}), 401
